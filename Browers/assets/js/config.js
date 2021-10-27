@@ -12,16 +12,20 @@ function CategoryChange(){
             left: "0px"
         });
         $("#content").animate({
-            width: "75%"
+            width: "50%"
         });
+        $("#category").removeClass("position-absolute")
+        $("#category").addClass("position-fixed")
         start = -1;
     }else{
         $("#category").animate({
             left: "-700px"
         });
         $("#content").animate({
-            width: "100%"
+            width: "75%"
         });
+        $("#category").removeClass("position-fixed")
+        $("#category").addClass("position-absolute")
         start = 0;
     }
 };

@@ -15,7 +15,7 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
     </head>
-    <body class="bg-light">
+    <body style="background-color: #f7f7f7;">
         <header class="border border-bottom-1 bg-white">
             <div class="m-2 d-flex justify-content-between">
                 <div class="ms-2">
