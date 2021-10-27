@@ -11,21 +11,17 @@ function CategoryChange(){
         $("#category").animate({
             left: "0px"
         });
-        $("#content").animate({
-            width: "50%"
-        });
-        $("#category").removeClass("position-absolute")
-        $("#category").addClass("position-fixed")
+        // $("#mid").animate({
+        //     width: "50%"
+        // });
         start = -1;
     }else{
         $("#category").animate({
             left: "-700px"
         });
-        $("#content").animate({
-            width: "75%"
-        });
-        $("#category").removeClass("position-fixed")
-        $("#category").addClass("position-absolute")
+        // $("#mid").animate({
+        //     width: "70%"
+        // });
         start = 0;
     }
 };

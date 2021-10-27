@@ -1,0 +1,33 @@
+a {
+    text-decoration: none;
+    color: whitesmoke;
+}
+
+/* category */
+#category {
+    top:  60px;
+    left: -700px;
+    height: 762px;
+    /* overflow: auto;*/
+}
+
+#content{
+    margin-top: 60px;
+}
+.left {
+    width: 70%;
+}
+.right {
+    width: 27.3%;
+    right: 0;
+}
+.contentMain {
+    margin-top: 30px;
+    background-color: white;
+    min-height: 300px;
+    border-top: solid 3px #0d6efd;
+    padding-left: 10px;
+}
+.category-list {
+    list-style: none;
+}
