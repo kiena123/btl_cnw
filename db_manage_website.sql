@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 28, 2021 at 01:47 PM
+-- Generation Time: Oct 28, 2021 at 06:50 PM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 8.0.10
 
@@ -28,8 +28,7 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `account` (
-  `ac_id` int(10) NOT NULL,
-  `ac_userid` int(10) NOT NULL,
+  `ac_email` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
   `ac_pass` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
   `ac_resdate` datetime NOT NULL DEFAULT current_timestamp(),
   `ac_status` tinyint(1) NOT NULL DEFAULT 0,
@@ -41,13 +40,13 @@ CREATE TABLE `account` (
 -- Dumping data for table `account`
 --
 
-INSERT INTO `account` (`ac_id`, `ac_userid`, `ac_pass`, `ac_resdate`, `ac_status`, `ac_level`, `ac_confirmed`) VALUES
-(1, 1, '123', '2021-10-28 17:56:23', 0, 0, ''),
-(2, 2, '456', '2021-10-28 17:56:23', 0, 0, ''),
-(3, 3, '789', '2021-10-28 17:56:23', 0, 0, ''),
-(4, 4, '267', '2021-10-28 17:56:23', 0, 0, ''),
-(5, 5, '468', '2021-10-28 17:56:23', 0, 0, ''),
-(6, 6, '234', '2021-10-28 17:56:23', 0, 0, '');
+INSERT INTO `account` (`ac_email`, `ac_pass`, `ac_resdate`, `ac_status`, `ac_level`, `ac_confirmed`) VALUES
+('wwducanhtran@gmail.com', '789', '2021-10-28 17:56:23', 0, 0, ''),
+('wwhungtranduy@gmail.com', '234', '2021-10-28 17:56:23', 0, 0, ''),
+('wwtranminhduc@gmail.com', '468', '2021-10-28 17:56:23', 0, 0, ''),
+('wwwhainguyendinh@gmail.com', '267', '2021-10-28 17:56:23', 0, 0, ''),
+('wwwvannguyentuan@yahoo.com', '123', '2021-10-28 17:56:23', 0, 0, ''),
+('wwwvantuantran@tlu.edu.vn', '456', '2021-10-28 17:56:23', 0, 0, '');
 
 -- --------------------------------------------------------
 
@@ -153,8 +152,7 @@ INSERT INTO `user` (`us_id`, `us_name`, `us_email`, `us_phone`, `us_resDate`) VA
 -- Indexes for table `account`
 --
 ALTER TABLE `account`
-  ADD PRIMARY KEY (`ac_id`),
-  ADD KEY `ac_userid` (`ac_userid`);
+  ADD PRIMARY KEY (`ac_email`);
 
 --
 -- Indexes for table `calendar`
@@ -183,17 +181,11 @@ ALTER TABLE `team`
 --
 ALTER TABLE `user`
   ADD PRIMARY KEY (`us_id`),
-  ADD UNIQUE KEY `us_email` (`us_email`);
+  ADD KEY `us_email` (`us_email`);
 
 --
 -- AUTO_INCREMENT for dumped tables
 --
-
---
--- AUTO_INCREMENT for table `account`
---
-ALTER TABLE `account`
-  MODIFY `ac_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `calendar`
@@ -224,12 +216,6 @@ ALTER TABLE `user`
 --
 
 --
--- Constraints for table `account`
---
-ALTER TABLE `account`
-  ADD CONSTRAINT `account_ibfk_1` FOREIGN KEY (`ac_userid`) REFERENCES `user` (`us_id`);
-
---
 -- Constraints for table `calendar`
 --
 ALTER TABLE `calendar`
@@ -247,6 +233,12 @@ ALTER TABLE `plan`
 ALTER TABLE `team`
   ADD CONSTRAINT `team_ibfk_1` FOREIGN KEY (`tm_memberid`) REFERENCES `user` (`us_id`),
   ADD CONSTRAINT `team_ibfk_2` FOREIGN KEY (`tm_managerid`) REFERENCES `user` (`us_id`);
+
+--
+-- Constraints for table `user`
+--
+ALTER TABLE `user`
+  ADD CONSTRAINT `user_ibfk_1` FOREIGN KEY (`us_email`) REFERENCES `account` (`ac_email`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
