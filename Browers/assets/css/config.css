@@ -3,6 +3,11 @@ a {
     color: whitesmoke;
 }
 
+.myText {
+    line-height: 25px;
+    font-weight: 1000;
+}
+
 /* category */
 #category {
     top:  60px;
@@ -13,6 +18,7 @@ a {
 
 #content{
     margin-top: 60px;
+    right: 0;
 }
 .left {
     width: 70%;
@@ -24,7 +30,7 @@ a {
 .contentMain {
     margin-top: 30px;
     background-color: white;
-    min-height: 300px;
+    min-height: 260px;
     border-top: solid 3px #0d6efd;
     padding-left: 10px;
 }

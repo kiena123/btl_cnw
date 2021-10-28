@@ -5,7 +5,17 @@
     include("../../config/category.php");
 ?>
         <div id="content" class="row">
-                <form action="" method="post">
+            <div class="contentMain">
+                <div class="pb-4 border-bottom border-3">
+                    <h1 class="m-3">Kế hoạch 1</h1>
+                    <div><b>Start: </b></div>
+                    <div><b>Dateline: </b></div>
+                </div>
+                <div class="myText">
+                    Nội dung
+                </div>
+            </div>
+                <!-- <form action="" method="post">
                         <input type="text" name="txtSearchPlan">
                         <select name="sltFilter" id="">
                                 <option value="0">Tất cả</option>
@@ -29,7 +39,7 @@
                         <div class="contentMain">
                                 <h4>Kế hoạch 5</h4>
                         </div>
-                </div>
+                </div> -->
         </div>
 
 <?php
