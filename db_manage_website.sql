@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 27, 2021 at 06:34 PM
+-- Generation Time: Oct 28, 2021 at 01:47 PM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 8.0.10
 
@@ -30,25 +30,48 @@ SET time_zone = "+00:00";
 CREATE TABLE `account` (
   `ac_id` int(10) NOT NULL,
   `ac_userid` int(10) NOT NULL,
-  `ac_email` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
   `ac_pass` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
   `ac_resdate` datetime NOT NULL DEFAULT current_timestamp(),
   `ac_status` tinyint(1) NOT NULL DEFAULT 0,
-  `ac_level` tinyint(1) NOT NULL DEFAULT 0
+  `ac_level` tinyint(1) NOT NULL DEFAULT 0,
+  `ac_confirmed` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `account`
+--
+
+INSERT INTO `account` (`ac_id`, `ac_userid`, `ac_pass`, `ac_resdate`, `ac_status`, `ac_level`, `ac_confirmed`) VALUES
+(1, 1, '123', '2021-10-28 17:56:23', 0, 0, ''),
+(2, 2, '456', '2021-10-28 17:56:23', 0, 0, ''),
+(3, 3, '789', '2021-10-28 17:56:23', 0, 0, ''),
+(4, 4, '267', '2021-10-28 17:56:23', 0, 0, ''),
+(5, 5, '468', '2021-10-28 17:56:23', 0, 0, ''),
+(6, 6, '234', '2021-10-28 17:56:23', 0, 0, '');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `group`
+-- Table structure for table `calendar`
 --
 
-CREATE TABLE `group` (
-  `gr_id` int(10) NOT NULL,
-  `gr_name` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `gr_memberid` int(10) NOT NULL,
-  `gr_managerid` int(10) NOT NULL
+CREATE TABLE `calendar` (
+  `cl_id` int(10) NOT NULL,
+  `cl_planid` int(10) NOT NULL,
+  `cl_start` datetime NOT NULL DEFAULT current_timestamp(),
+  `cl_end` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `calendar`
+--
+
+INSERT INTO `calendar` (`cl_id`, `cl_planid`, `cl_start`, `cl_end`) VALUES
+(1, 3, '2021-10-28 18:26:37', '2021-10-13 18:26:52'),
+(2, 4, '2021-10-28 18:26:37', '2021-12-23 17:24:01'),
+(3, 5, '2021-10-28 18:26:37', '2022-05-17 08:26:31'),
+(4, 6, '2021-10-28 18:26:37', '2021-04-20 12:14:48'),
+(5, 7, '2021-10-28 18:26:37', '2022-03-10 17:38:03');
 
 -- --------------------------------------------------------
 
@@ -69,7 +92,32 @@ CREATE TABLE `plan` (
 --
 
 INSERT INTO `plan` (`pl_id`, `pl_userid`, `pl_datestart`, `pl_deadline`, `pl_contents`) VALUES
-(2, 2, '2021-10-16', '2021-12-24', 'Thế giới muôn màu');
+(2, 2, '2021-10-16', '2021-12-24', 'Thế giới muôn màu'),
+(3, 1, '2021-10-28', '2021-07-15', 'Nộp pdf'),
+(4, 1, '2021-10-28', '2021-07-30', 'Nộp world'),
+(5, 1, '2021-10-28', '2021-12-24', 'Nộp Powerpoint'),
+(6, 1, '2021-10-28', '2021-08-04', 'Nộp Exel'),
+(7, 1, '2021-10-28', '2022-03-08', 'Nộp Dự án');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `team`
+--
+
+CREATE TABLE `team` (
+  `tm_id` int(10) NOT NULL,
+  `tm_name` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `tm_memberid` int(10) NOT NULL,
+  `tm_managerid` int(10) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `team`
+--
+
+INSERT INTO `team` (`tm_id`, `tm_name`, `tm_memberid`, `tm_managerid`) VALUES
+(1, 'Nhóm IT', 1, 3);
 
 -- --------------------------------------------------------
 
@@ -82,19 +130,20 @@ CREATE TABLE `user` (
   `us_name` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
   `us_email` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
   `us_phone` varchar(20) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `us_resDate` date NOT NULL DEFAULT current_timestamp(),
-  `us_status` tinyint(1) NOT NULL DEFAULT 0,
-  `us_level` tinyint(1) NOT NULL DEFAULT 0,
-  `us_confirm` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL
+  `us_resDate` date NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `user`
 --
 
-INSERT INTO `user` (`us_id`, `us_name`, `us_email`, `us_phone`, `us_resDate`, `us_status`, `us_level`, `us_confirm`) VALUES
-(1, 'Nguyễn Văn Tuấn', 'wwwvannguyentuan@yahoo.com', '1900651252', '0000-00-00', 0, 0, ''),
-(2, 'Trần Văn Tuấn', 'wwwvantuantran@tlu.edu.vn', '1900650252', '2021-10-27', 0, 0, '');
+INSERT INTO `user` (`us_id`, `us_name`, `us_email`, `us_phone`, `us_resDate`) VALUES
+(1, 'Nguyễn Văn Tuấn', 'wwwvannguyentuan@yahoo.com', '1900651252', '2021-04-14'),
+(2, 'Trần Văn Tuấn', 'wwwvantuantran@tlu.edu.vn', '1900650252', '2021-10-27'),
+(3, 'Trần Đức Anh', 'wwducanhtran@gmail.com', '943369523', '2021-10-04'),
+(4, 'Nguyễn Hải Đình', 'wwwhainguyendinh@gmail.com', '943369523', '2021-09-24'),
+(5, 'Trần Minh Đức', 'wwtranminhduc@gmail.com', '943369523', '2021-09-01'),
+(6, 'Trần Duy Hưng', 'wwhungtranduy@gmail.com', '943369523', '2021-09-16');
 
 --
 -- Indexes for dumped tables
@@ -108,12 +157,11 @@ ALTER TABLE `account`
   ADD KEY `ac_userid` (`ac_userid`);
 
 --
--- Indexes for table `group`
+-- Indexes for table `calendar`
 --
-ALTER TABLE `group`
-  ADD PRIMARY KEY (`gr_id`),
-  ADD KEY `gr_memberid` (`gr_memberid`),
-  ADD KEY `gr_managerid` (`gr_managerid`);
+ALTER TABLE `calendar`
+  ADD PRIMARY KEY (`cl_id`),
+  ADD KEY `cl_planid` (`cl_planid`);
 
 --
 -- Indexes for table `plan`
@@ -123,10 +171,19 @@ ALTER TABLE `plan`
   ADD KEY `pl_userid` (`pl_userid`);
 
 --
+-- Indexes for table `team`
+--
+ALTER TABLE `team`
+  ADD PRIMARY KEY (`tm_id`),
+  ADD KEY `gr_memberid` (`tm_memberid`),
+  ADD KEY `gr_managerid` (`tm_managerid`);
+
+--
 -- Indexes for table `user`
 --
 ALTER TABLE `user`
-  ADD PRIMARY KEY (`us_id`);
+  ADD PRIMARY KEY (`us_id`),
+  ADD UNIQUE KEY `us_email` (`us_email`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -136,25 +193,31 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `account`
 --
 ALTER TABLE `account`
-  MODIFY `ac_id` int(10) NOT NULL AUTO_INCREMENT;
+  MODIFY `ac_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
--- AUTO_INCREMENT for table `group`
+-- AUTO_INCREMENT for table `calendar`
 --
-ALTER TABLE `group`
-  MODIFY `gr_id` int(10) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `calendar`
+  MODIFY `cl_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `plan`
 --
 ALTER TABLE `plan`
-  MODIFY `pl_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `pl_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+
+--
+-- AUTO_INCREMENT for table `team`
+--
+ALTER TABLE `team`
+  MODIFY `tm_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `us_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `us_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- Constraints for dumped tables
@@ -167,17 +230,23 @@ ALTER TABLE `account`
   ADD CONSTRAINT `account_ibfk_1` FOREIGN KEY (`ac_userid`) REFERENCES `user` (`us_id`);
 
 --
--- Constraints for table `group`
+-- Constraints for table `calendar`
 --
-ALTER TABLE `group`
-  ADD CONSTRAINT `group_ibfk_1` FOREIGN KEY (`gr_memberid`) REFERENCES `user` (`us_id`),
-  ADD CONSTRAINT `group_ibfk_2` FOREIGN KEY (`gr_managerid`) REFERENCES `user` (`us_id`);
+ALTER TABLE `calendar`
+  ADD CONSTRAINT `calendar_ibfk_1` FOREIGN KEY (`cl_planid`) REFERENCES `plan` (`pl_id`);
 
 --
 -- Constraints for table `plan`
 --
 ALTER TABLE `plan`
   ADD CONSTRAINT `plan_ibfk_1` FOREIGN KEY (`pl_userid`) REFERENCES `user` (`us_id`);
+
+--
+-- Constraints for table `team`
+--
+ALTER TABLE `team`
+  ADD CONSTRAINT `team_ibfk_1` FOREIGN KEY (`tm_memberid`) REFERENCES `user` (`us_id`),
+  ADD CONSTRAINT `team_ibfk_2` FOREIGN KEY (`tm_managerid`) REFERENCES `user` (`us_id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
