@@ -43,9 +43,6 @@
             <button type="submit" class="btn btn-primary btn-lg" name="btnDangNhap"
               style="padding-left: 2.5rem; padding-right: 2.5rem;">Đăng nhập</button>
           </div>
-          <?php
-          echo $_GET["response"];
-          ?>
         </form>
       </div>
     </div>

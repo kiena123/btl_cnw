@@ -11,7 +11,7 @@ $email = $_GET['email'];
 include("../../config/db.php");
 $code = rand();
 $confirmed = md5($code);
-$result = mysqli_query($conn,"UPDATE users SET ac_confirmed = '$confirmed' where ac_email='$email'");
+$result = mysqli_query($conn,"UPDATE account SET ac_confirmed = '$confirmed' where ac_email='$email'");
 
 // Instantiation and passing `true` enables exceptions
 $mail = new PHPMailer(true);

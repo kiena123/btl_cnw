@@ -101,7 +101,7 @@
                     </label>
                   </div> -->
 
-                  <a id="link" style="width: 20px; height: 10px" href="./controllers/sendEmailv1/index.php?email=lethiquang44@gmail.com">Gửi mail</a>
+                  <!-- <a id="link" style="width: 20px; height: 10px" href="./controllers/sendEmailv1/index.php?email=lethiquang44@gmail.com">Gửi mail</a> -->
                   <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
                     <button type="submit" class="btn btn-primary btn-lg" name="btnRegister">Đăng ký</button>
                   </div>

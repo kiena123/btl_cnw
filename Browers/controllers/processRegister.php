@@ -7,7 +7,7 @@
         
         $sql_email_ac= $sql_ac . " where ac_email='$email'";
         $result_ac = mysqli_query($conn,$sql_email_ac);
-        if(($result_us) > 0){
+        if(mysqli_num_rows($result_ac) > 0){
             $response = "existEmail";
             // header("location: ../register.php?response=$reponsive");
         }else{
