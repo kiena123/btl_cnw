@@ -42,7 +42,7 @@
                     <i class="fas fa-user fa-lg me-3 fa-fw"></i>
                     <div class="form-outline flex-fill mb-0">
                       <input type="text" id="txtName" name="txtName" class="form-control" />
-                      <label class="form-label" for="txtName">Họ</label>
+                      <label class="form-label" for="txtName">Tên</label>
                     </div>
                   </div>
 
