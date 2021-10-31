@@ -1,4 +1,8 @@
 <?php
+        session_start();
+        if(!$_SESSION['id']){
+        header("location: ../../login.php");
+        }
     include("../../config/header.php");
 ?>
 <?php

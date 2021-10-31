@@ -20,10 +20,6 @@
                             <a href="./mygroup.php" class="text-decoration-none" style="color: #e9ecef">Nhóm của bạn</a>
                             <ul class="category-list">
                                 <li><a href="">Nhóm 1</a></li>
-                                <li><a href="">Nhóm 2</a></li>
-                                <li><a href="">Nhóm 3</a></li>
-                                <li><a href="">Nhóm 4</a></li>
-                                <li><a href="">Nhóm 5</a></li>
                             </ul>
                         </div>
                     </div>

@@ -36,8 +36,23 @@
               placeholder="Enter password" />
             <label class="form-label" for="txtPassword">Mật khẩu</label>
           </div>
-  
-          <div class="d-flex justify-content-between align-items-center">
+                  <?php
+                    if(isset($_GET['response'])){
+                      if($_GET['response'] == 'noAccuracy'){
+                        echo "<p class='text-danger'>Vào email để xác minh</p>";
+                      }else if($_GET['response'] == 'pass'){
+                        echo "<p class='text-danger'>Sai mật khẩu</p>";
+                      }else if($_GET['response'] == 'email'){
+                        echo "<p class='text-danger'>Sai email</p>";
+                      }
+
+                      // if($_GET['response'] == 'existed'){
+                      //   echo "<p class='text-danger'>Email đã tồn tại</p>";
+                      // }
+                    }
+
+                ?>
+          <!-- <div class="d-flex justify-content-between align-items-center"> -->
   
           <div class="text-center text-lg-start mt-4 pt-2">
             <button type="submit" class="btn btn-primary btn-lg" name="btnDangNhap"

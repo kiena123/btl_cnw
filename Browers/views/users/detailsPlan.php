@@ -1,11 +1,15 @@
 <?php
+        session_start();
+        if(!$_SESSION['id']){
+        header("location: ../../login.php");
+        }
     include("../../config/header.php");
 ?>
 <?php
     include("../../config/category.php");
 ?>
         <div id="content" class="row">
-            <div class="contentMain">
+            <div class="contentMain mx-3">
                 <div class="pb-4 border-bottom border-3">
                     <h1 class="m-3">Kế hoạch 1</h1>
                     <div><b>Start: </b></div>
