@@ -22,7 +22,8 @@
                     <h4>Kế hoạch gần hết hạn</h4>
                     <ul class="ms-3">
                     <?php
-                        $sql_query_pl = $sql_pl . " where pl_userid = '$id' ORDER BY DATEDIFF(pl_deadline,CURRENT_DATE)";
+                        $sql_query_pl = $sql_pl . " where pl_userid = '$id' and DATEDIFF(CURRENT_DATE,pl_datestart) > 0 and  
+                                        DATEDIFF(pl_deadline,CURRENT_DATE) > 0 ORDER BY DATEDIFF(pl_deadline,CURRENT_DATE)";
                         $result_pl = mysqli_query($conn,$sql_query_pl);
                         if(mysqli_num_rows($result_pl)){
                             while($row_pl = mysqli_fetch_assoc($result_pl)){
