@@ -3,6 +3,7 @@
     if(!$_SESSION['id']){
         header("location: ../../login.php");
     }
+    $us_id = $_SESSION["id"];
     include("../../config/header.php");
 ?>
 <?php

@@ -3,7 +3,7 @@
     if(!$_SESSION["id"]){
         header("location: ../../login.php");
     }
-    $id = $_SESSION["id"];
+    $us_id = $_SESSION["id"];
     include("../../config/header.php");
     include("../../config/db.php");
 ?>
@@ -22,10 +22,10 @@
                     <h4>Kế hoạch gần hết hạn</h4>
                     <ul class="ms-3">
                     <?php
-                        $sql_query_pl = $sql_pl . " where pl_userid = '$id' and DATEDIFF(CURRENT_DATE,pl_datestart) > 0 and  
-                                        DATEDIFF(pl_deadline,CURRENT_DATE) > 0 ORDER BY DATEDIFF(pl_deadline,CURRENT_DATE)";
+                        $sql_query_pl = $sql_pl . " where pl_userid = '$us_id' and  
+                        DATEDIFF(pl_deadline,CURRENT_DATE) > 0 ORDER BY DATEDIFF(pl_deadline,CURRENT_DATE)";
                         $result_pl = mysqli_query($conn,$sql_query_pl);
-                        if(mysqli_num_rows($result_pl)){
+                        if(mysqli_num_rows($result_pl) > 0){
                             while($row_pl = mysqli_fetch_assoc($result_pl)){
                                 echo "<li><a class='text-danger' href='./detailsPlan.php?pl_id=".$row_pl['pl_id']."'>".$row_pl['pl_contents']."</a></li>";
                             }

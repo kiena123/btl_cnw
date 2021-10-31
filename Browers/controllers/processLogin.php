@@ -22,13 +22,13 @@
             header("location: ../views/users/index.php");
         }else if(password_verify($pass, $pass_saved) and $row['ac_status'] == 0){
             $response = "noAccuracy";
-            header("location: ./login.php");
+            header("location: ../login.php");
         }else{
             $response = "pass";
-            header("location: ./login.php");
+            header("location: ../login.php");
         }
     }else{
         $response = "email";
-        header("location: ./login.php/");
+        header("location: ../login.php/");
     }
     

@@ -4,7 +4,8 @@
         header("location: ../../login.php");
         }
         $us_id = $_SESSION["id"];
-    include("../../config/header.php");
+        include("../../config/header.php");
+        include("../../config/db.php");
 ?>
 <?php
     include("../../config/category.php");

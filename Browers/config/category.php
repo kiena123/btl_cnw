@@ -1,3 +1,6 @@
+<?php
+    include("../../config/db.php");
+?>
 
                     <div id="category" class="col col-md-3 bg-dark text-light position-fixed overflow-auto" style="height: 1000px;">
                         <div class="text-light my-3">
@@ -9,17 +12,38 @@
                         <div class="text-light my-3">
                             <a href="" class="text-decoration-none" style="color: #e9ecef">Các kế hoạch</a>
                             <ul class="category-list">
-                                <li><a href="./detailsPlan.php?us_id=1">Kế hoạch 1</a></li>
-                                <li><a href="./detailsPlan.php?us_id=1">Kế hoạch 2</a></li>
-                                <li><a href="./detailsPlan.php?us_id=1">Kế hoạch 3</a></li>
-                                <li><a href="./detailsPlan.php?us_id=1">Kế hoạch 4</a></li>
-                                <li><a href="./detailsPlan.php?us_id=1">Kế hoạch 5</a></li>
+                            <?php
+                                $sql_query_pl = $sql_pl . " where pl_userid = '$us_id' and  
+                                                DATEDIFF(pl_deadline,CURRENT_DATE) > 0 ORDER BY DATEDIFF(pl_deadline,CURRENT_DATE)";
+                                $result_pl = mysqli_query($conn,$sql_query_pl);
+                                if(mysqli_num_rows($result_pl) > 0){
+                                    for($i = 0;$i < 5;$i++){
+                                        while($row_pl = mysqli_fetch_assoc($result_pl)){
+                                            echo "<li><a class='text-danger' href='./detailsPlan.php?pl_id=".$row_pl['pl_id']."'>".$row_pl['pl_name']."</a></li>";
+                                        }
+                                        if(mysqli_num_rows($result_pl) > 5){
+                                            echo "<li><a class='text-danger' href='./myplan.php>Xem thêm</a></li>";
+                                        }
+                                    }
+                                }
+                            ?>
                             </ul>
                         </div>
                         <div class="text-light my-3">
                             <a href="./mygroup.php" class="text-decoration-none" style="color: #e9ecef">Nhóm của bạn</a>
                             <ul class="category-list">
-                                <li><a href="">Nhóm 1</a></li>
+                                <?php
+                                    $sql_query_tm = $sql_tm . " where tm_memberid = '$us_id' LIMIT 0,5";
+                                    $result_tm = mysqli_query($conn,$sql_query_tm);
+                                    if(mysqli_num_rows($result_tm) > 0){
+                                        while($row_tm = mysqli_fetch_assoc($result_tm)){
+                                            echo "<li><a class='text-danger' href='./detailsPlan.php?pl_id=".$row_tm['tm_id']."'>".$row_tml['tm_name']."</a></li>";
+                                        }
+                                        if(mysqli_num_rows($result_tm) > 5){
+                                            echo "<li><a class='text-danger' href='./myplan.php>Xem thêm</a></li>";
+                                        }
+                                    }
+                                ?>
                             </ul>
                         </div>
                     </div>
