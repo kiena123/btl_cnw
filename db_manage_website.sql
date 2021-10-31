@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 28, 2021 at 06:50 PM
+-- Generation Time: Oct 31, 2021 at 10:12 AM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 8.0.10
 
@@ -29,8 +29,8 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `account` (
   `ac_email` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `ac_pass` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `ac_resdate` datetime NOT NULL DEFAULT current_timestamp(),
+  `ac_pass` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `ac_regdate` datetime NOT NULL DEFAULT current_timestamp(),
   `ac_status` tinyint(1) NOT NULL DEFAULT 0,
   `ac_level` tinyint(1) NOT NULL DEFAULT 0,
   `ac_confirmed` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL
@@ -40,7 +40,7 @@ CREATE TABLE `account` (
 -- Dumping data for table `account`
 --
 
-INSERT INTO `account` (`ac_email`, `ac_pass`, `ac_resdate`, `ac_status`, `ac_level`, `ac_confirmed`) VALUES
+INSERT INTO `account` (`ac_email`, `ac_pass`, `ac_regdate`, `ac_status`, `ac_level`, `ac_confirmed`) VALUES
 ('wwducanhtran@gmail.com', '789', '2021-10-28 17:56:23', 0, 0, ''),
 ('wwhungtranduy@gmail.com', '234', '2021-10-28 17:56:23', 0, 0, ''),
 ('wwtranminhduc@gmail.com', '468', '2021-10-28 17:56:23', 0, 0, ''),
@@ -83,6 +83,7 @@ CREATE TABLE `plan` (
   `pl_userid` int(10) NOT NULL,
   `pl_datestart` date NOT NULL DEFAULT current_timestamp(),
   `pl_deadline` date NOT NULL,
+  `pl_name` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
   `pl_contents` varchar(200) COLLATE utf8mb4_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
@@ -90,13 +91,13 @@ CREATE TABLE `plan` (
 -- Dumping data for table `plan`
 --
 
-INSERT INTO `plan` (`pl_id`, `pl_userid`, `pl_datestart`, `pl_deadline`, `pl_contents`) VALUES
-(2, 2, '2021-10-16', '2021-12-24', 'Thế giới muôn màu'),
-(3, 1, '2021-10-28', '2021-07-15', 'Nộp pdf'),
-(4, 1, '2021-10-28', '2021-07-30', 'Nộp world'),
-(5, 1, '2021-10-28', '2021-12-24', 'Nộp Powerpoint'),
-(6, 1, '2021-10-28', '2021-08-04', 'Nộp Exel'),
-(7, 1, '2021-10-28', '2022-03-08', 'Nộp Dự án');
+INSERT INTO `plan` (`pl_id`, `pl_userid`, `pl_datestart`, `pl_deadline`, `pl_name`, `pl_contents`) VALUES
+(2, 2, '2021-10-16', '2021-12-24', '', 'Thế giới muôn màu'),
+(3, 1, '2021-10-28', '2021-07-15', '', 'Nộp pdf'),
+(4, 1, '2021-10-28', '2021-07-30', '', 'Nộp world'),
+(5, 1, '2021-10-28', '2021-12-24', '', 'Nộp Powerpoint'),
+(6, 1, '2021-10-28', '2021-08-04', '', 'Nộp Exel'),
+(7, 1, '2021-10-28', '2022-03-08', '', 'Nộp Dự án');
 
 -- --------------------------------------------------------
 
@@ -129,14 +130,14 @@ CREATE TABLE `user` (
   `us_name` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
   `us_email` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
   `us_phone` varchar(20) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `us_resDate` date NOT NULL DEFAULT current_timestamp()
+  `us_regdate` date NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `user`
 --
 
-INSERT INTO `user` (`us_id`, `us_name`, `us_email`, `us_phone`, `us_resDate`) VALUES
+INSERT INTO `user` (`us_id`, `us_name`, `us_email`, `us_phone`, `us_regdate`) VALUES
 (1, 'Nguyễn Văn Tuấn', 'wwwvannguyentuan@yahoo.com', '1900651252', '2021-04-14'),
 (2, 'Trần Văn Tuấn', 'wwwvantuantran@tlu.edu.vn', '1900650252', '2021-10-27'),
 (3, 'Trần Đức Anh', 'wwducanhtran@gmail.com', '943369523', '2021-10-04'),
