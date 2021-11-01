@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 31, 2021 at 10:12 AM
+-- Generation Time: Nov 01, 2021 at 10:12 AM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 8.0.10
 
@@ -75,6 +75,25 @@ INSERT INTO `calendar` (`cl_id`, `cl_planid`, `cl_start`, `cl_end`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `member`
+--
+
+CREATE TABLE `member` (
+  `mb_teamid` int(10) NOT NULL,
+  `mb_userid` int(10) NOT NULL,
+  `mb_status` tinyint(1) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `member`
+--
+
+INSERT INTO `member` (`mb_teamid`, `mb_userid`, `mb_status`) VALUES
+(1, 2, 1);
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `plan`
 --
 
@@ -108,7 +127,6 @@ INSERT INTO `plan` (`pl_id`, `pl_userid`, `pl_datestart`, `pl_deadline`, `pl_nam
 CREATE TABLE `team` (
   `tm_id` int(10) NOT NULL,
   `tm_name` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `tm_memberid` int(10) NOT NULL,
   `tm_managerid` int(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
@@ -116,8 +134,8 @@ CREATE TABLE `team` (
 -- Dumping data for table `team`
 --
 
-INSERT INTO `team` (`tm_id`, `tm_name`, `tm_memberid`, `tm_managerid`) VALUES
-(1, 'Nhóm IT', 1, 3);
+INSERT INTO `team` (`tm_id`, `tm_name`, `tm_managerid`) VALUES
+(1, 'Nhóm 1', 4);
 
 -- --------------------------------------------------------
 
@@ -163,6 +181,13 @@ ALTER TABLE `calendar`
   ADD KEY `cl_planid` (`cl_planid`);
 
 --
+-- Indexes for table `member`
+--
+ALTER TABLE `member`
+  ADD PRIMARY KEY (`mb_teamid`,`mb_userid`),
+  ADD KEY `mb_userid` (`mb_userid`);
+
+--
 -- Indexes for table `plan`
 --
 ALTER TABLE `plan`
@@ -174,7 +199,6 @@ ALTER TABLE `plan`
 --
 ALTER TABLE `team`
   ADD PRIMARY KEY (`tm_id`),
-  ADD KEY `gr_memberid` (`tm_memberid`),
   ADD KEY `gr_managerid` (`tm_managerid`);
 
 --
@@ -223,6 +247,14 @@ ALTER TABLE `calendar`
   ADD CONSTRAINT `calendar_ibfk_1` FOREIGN KEY (`cl_planid`) REFERENCES `plan` (`pl_id`);
 
 --
+-- Constraints for table `member`
+--
+ALTER TABLE `member`
+  ADD CONSTRAINT `member_ibfk_1` FOREIGN KEY (`mb_teamid`) REFERENCES `team` (`tm_id`),
+  ADD CONSTRAINT `member_ibfk_2` FOREIGN KEY (`mb_userid`) REFERENCES `user` (`us_id`),
+  ADD CONSTRAINT `member_ibfk_3` FOREIGN KEY (`mb_teamid`) REFERENCES `team` (`tm_id`);
+
+--
 -- Constraints for table `plan`
 --
 ALTER TABLE `plan`
@@ -232,7 +264,6 @@ ALTER TABLE `plan`
 -- Constraints for table `team`
 --
 ALTER TABLE `team`
-  ADD CONSTRAINT `team_ibfk_1` FOREIGN KEY (`tm_memberid`) REFERENCES `user` (`us_id`),
   ADD CONSTRAINT `team_ibfk_2` FOREIGN KEY (`tm_managerid`) REFERENCES `user` (`us_id`);
 
 --
