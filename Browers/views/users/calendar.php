@@ -13,11 +13,15 @@
         <div id="content" class="row">
             <div id="mid" class="left">
                 <div class="contentMain">
-                    <h4>Thời gian biểu của ngày theo tuần</h4>
-                    <form id="dateSearch" method="post">
-                        <input id="date" type="date" name="inputDate">
-                        <button type="submit" class="btn btn-primary" name="btnDangNhap"> Đăng nhập</button>
-                    </form>
+                    <div class="d-flex justify-content-between">
+                        <div>
+                            <h4>Thời gian biểu của ngày theo tuần</h4>
+                            <form id="dateSearch" method="post">
+                                <input id="date" type="date" name="inputDate">
+                                <button type="submit" class="btn btn-primary" name="btnDangNhap">Tìm kiếm</button>
+                            </form>
+                        </div>
+                    </div>
                     <div class="schedule">
                         <table class="table">
                             <thead>
@@ -36,10 +40,22 @@
                                                 $date_start = mktime(00,00,00,$date_item[1], $date_item[2] - $period, $date_item[0]);
                                                 $date = getdate($date_start);
                                             }else{
-                                                $date = getdate();
+                                                $date_search_value = getdate();
+                                                $period = $date_search_value["wday"] - 1;
+                                                if($period < 0){
+                                                    $period +=7;
+                                                }
+                                                $date_start = mktime(00,00,00,$date_search_value["mon"],$date_search_value["mday"] - $period, $date_search_value["year"]);
+                                                $date = getdate($date_start);
                                             }
                                         }else{
-                                            $date = getdate();
+                                                $date_search_value = getdate();
+                                                $period = $date_search_value["wday"] - 1;
+                                                if($period < 0){
+                                                    $period +=7;
+                                                }
+                                                $date_start = mktime(00,00,00,$date_search_value["mon"],$date_search_value["mday"] - $period, $date_search_value["year"]);
+                                                $date = getdate($date_start);
                                         }
                                         for($i = 0;$i < 7;$i++){
                                             $weekForDate = mktime(00,00,00,$date["mon"], $date["mday"] + $i, $date["year"]);
@@ -61,7 +77,7 @@
             </div>
             <div class="right">
                 <div class="contentMain">
-                    <h4>Kế hoạch gần hết hạn</h4>
+                    <h4>Kế hoạch còn hạn khi ngày</h4>
                     <ul class="ms-3">
                         <?php
                             $sql_query_pl = $sql_pl . " where pl_userid = '$us_id' and  
@@ -79,7 +95,6 @@
                 </div>
             </div>
         </div>
-        <!-- <script src="../../assets/js/calendar.js"></script> -->
 <?php
     
 ?>

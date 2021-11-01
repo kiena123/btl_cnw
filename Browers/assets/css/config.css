@@ -3,9 +3,13 @@ a {
     color: whitesmoke;
 }
 
+a:hover{
+    color: whitesmoke;
+}
+
 .myText {
     line-height: 25px;
-    font-weight: 1000;
+    font-weight: 400;
 }
 
 /* category */
@@ -20,6 +24,9 @@ a {
     margin-top: 70px;
     right: 0;
 }
+#mid {
+    margin-left: 8px;
+}
 .left {
     width: 70%;
 }
@@ -32,9 +39,14 @@ a {
     background-color: white;
     min-height: 260px;
     border-top: solid 3px #0d6efd;
-    padding-left: 10px;
+    padding: 0px 10px;
     border-radius: 10px;
 }
 .category-list {
     list-style: none;
+}
+
+.category-list li:hover{
+    color: #fffbfc;
+    background-color: rgba(253,100,122,.05);
 }

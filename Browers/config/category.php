@@ -10,7 +10,7 @@
                             <a href="./calendar.php" class="text-decoration-none " style="color: #e9ecef">Lịch</a>
                         </div>
                         <div class="text-light my-3">
-                            <a href="" class="text-decoration-none" style="color: #e9ecef">Các kế hoạch</a>
+                            <a href="./myplan.php" class="text-decoration-none" style="color: #e9ecef">Các kế hoạch</a>
                             <ul class="category-list">
                             <?php
                                 $sql_query_pl = $sql_pl . " where pl_userid = '$us_id' and  
@@ -33,14 +33,20 @@
                             <a href="./mygroup.php" class="text-decoration-none" style="color: #e9ecef">Nhóm của bạn</a>
                             <ul class="category-list">
                                 <?php
-                                    $sql_query_tm = $sql_tm . " where tm_memberid = '$us_id' LIMIT 0,5";
+                                    $check = 0;
+                                    $sql_query_tm = $sql_tm . " where tm_memberid = '$us_id'";
                                     $result_tm = mysqli_query($conn,$sql_query_tm);
                                     if(mysqli_num_rows($result_tm) > 0){
                                         while($row_tm = mysqli_fetch_assoc($result_tm)){
-                                            echo "<li><a class='text-danger' href='./detailsPlan.php?pl_id=".$row_tm['tm_id']."'>".$row_tml['tm_name']."</a></li>";
+                                            if($check == 5){
+                                                break;
+                                            }else{
+                                                echo "<li><a class='text-danger' href='./detailsGroup.php?tm_id=".$row_tm['tm_id']."'>".$row_tml['tm_name']."</a></li>";
+                                                $check += 1;
+                                            }
                                         }
                                         if(mysqli_num_rows($result_tm) > 5){
-                                            echo "<li><a class='text-danger' href='./myplan.php>Xem thêm</a></li>";
+                                            echo "<li><a class='text-danger' href='./mygroup.php>Xem thêm</a></li>";
                                         }
                                     }
                                 ?>

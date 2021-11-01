@@ -1,7 +1,10 @@
 $(document).ready(function(e){
-    $("#dateSearch").submit(function(e){
+    $("#processCalendar").submit(function(e){
         e.preventDefault();
-        deleteNameTable();
+        
+        $.ajax({
+            url: "./",
+        });
     })
 })
 
