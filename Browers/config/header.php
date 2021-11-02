@@ -24,7 +24,7 @@
                     <img src="../../assets/images/logoDHTL.jfif" class="ms-3" width="50" alt="logo">
                 </div>
                 <div class="me-2">
-                    <button class="btn btn-warning"><a href="../../controllers/processLogout.php">Đăng xuất</a></button>
+                    <button class="btn btn-warning"><a href="../../controllers/processLogout.php?repnse=ok">Đăng xuất</a></button>
                     
                 </div>
             </div>
