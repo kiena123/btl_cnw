@@ -13,7 +13,7 @@
         <div id="content" class="row">
             <div id="mid" class="left">
                 <div class="contentMain">
-                    <div class="d-flex justify-content-between">
+                    <div class="d-flex justify-content-between pb-3 border-bottom border-4">
                         <div>
                             <h4>Thời gian biểu của ngày theo tuần</h4>
                             <form id="dateSearch" method="post">
@@ -23,82 +23,46 @@
                         </div>
                     </div>
                     <div class="schedule">
-                        <table class="table">
-                            <thead>
-                                <!-- <tr id="rowName">
-
-                                    // if(isset($_POST['btnDangNhap'])){
-                                        //     if($_POST['inputDate'] != ""){
-                                            //         $date_str = $_POST['inputDate'];
-                                        //         $date_item = explode("-",$date_str);
-                                        //         $date_search = mktime(00,00,00,$date_item[1], $date_item[2], $date_item[0]);
-                                        //         $date_search_value = getdate($date_search);
-                                        //         $period = $date_search_value["wday"] - 1;
-                                        //         if($period < 0){
-                                            //             $period +=7;
-                                        //         }
-                                        //         $date_start = mktime(00,00,00,$date_item[1], $date_item[2] - $period, $date_item[0]);
-                                        //         $date = getdate($date_start);
-                                        //     }else{
-                                        //         $date_search_value = getdate();
-                                        //         $period = $date_search_value["wday"] - 1;
-                                        //         if($period < 0){
-                                        //             $period +=7;
-                                        //         }
-                                        //         $date_start = mktime(00,00,00,$date_search_value["mon"],$date_search_value["mday"] - $period, $date_search_value["year"]);
-                                        //         $date = getdate($date_start);
-                                        //     }
-                                        // }else{
-                                        //         $date_search_value = getdate();
-                                        //         $period = $date_search_value["wday"] - 1;
-                                        //         if($period < 0){
-                                        //             $period +=7;
-                                        //         }
-                                        //         $date_start = mktime(00,00,00,$date_search_value["mon"],$date_search_value["mday"] - $period, $date_search_value["year"]);
-                                        //         $date = getdate($date_start);
-                                        // }
-                                        // for($i = 0;$i < 7;$i++){
-                                            //     $weekForDate = mktime(00,00,00,$date["mon"], $date["mday"] + $i, $date["year"]);
-                                            //     $weekForDate = getdate($weekForDate);
-                                            //     echo "<th>".$weekForDate["mday"]."/".$weekForDate["mon"]."/".$weekForDate["year"]."</th>";
-                                            // }
-                                        </tr> -->
-                        </thead>
-                        <tbody>
-                                    <?php
-                                        if(isset($_POST["btnSearch"])){
-                                            if($_POST['inputDate'] != ""){
-                                                $date_str = $_POST['inputDate'];
-                                                $date_item = explode("-",$date_str);
-                                                $date_search_time = mktime(00,00,00,$date_item[1], $date_item[2], $date_item[0]);
-                                                $date_search_value = getdate($date_search_time);
-                                                $date_search = $date_search_value["year"]."/".$date_search_value["mon"]."/".$date_search_value["mday"];
-                                                $sql_search_cl = $sql_cl . "where pl_userid = '$us_id' and DATEDIFF(cl_end,$date_search) >= 0 and
-                                                                            DATEDIFF($date_search,cl_start) >= 0 ORDER BY DATEDIFF(pl_deadline,$date_search)";
-                                            }else{
-                                                $sql_search_cl = $sql_cl . "where pl_userid = '$us_id' and DATEDIFF(cl_end,CURRENT_DATE) >= 0 and
-                                                                            DATEDIFF(CURRENT_DATE,cl_start) >= 0 ORDER BY DATEDIFF(pl_deadline,CURRENT_DATE)";
-                                            }
-                                        }else{
-                                            $sql_search_cl = $sql_cl . "where pl_userid = '$us_id' and DATEDIFF(cl_end,CURRENT_DATE) >= 0 and
-                                                                        DATEDIFF(CURRENT_DATE,cl_start) >= 0 ORDER BY DATEDIFF(pl_deadline,CURRENT_DATE)";
-                                        }
-                                        $result_search_cl = mysqli_query($conn,$sql_search_cl);
-                                        if($result_search_cl > 0){
-                                            while($row_search_cl = mysqli_fetch_assoc($result_search_cl)){
-                                    ?>
-                                <tr scope="row">
-                                    <td>
-                                        
-                                    </td>
-                                </tr>
+                        <?php
+                            if(isset($_POST["btnSearch"])){
+                                if($_POST['inputDate'] != ""){
+                                    $date_str = $_POST['inputDate'];
+                                    $date_item = explode("-",$date_str);
+                                    $date_search_time = mktime(00,00,00,$date_item[1], $date_item[2], $date_item[0]);
+                                    $date_search_value = getdate($date_search_time);
+                                    $date_search = $date_search_value["year"]."/".$date_search_value["mon"]."/".$date_search_value["mday"];
+                                }else{
+                                    $date_search_value = getdate();
+                                    $date_search = $date_search_value["year"]."/".$date_search_value["mon"]."/".$date_search_value["mday"];
+                                }
+                            }else{
+                                $date_search_value = getdate();
+                                $date_search = $date_search_value["year"]."/".$date_search_value["mon"]."/".$date_search_value["mday"];
+                            }
+                        ?>
+                        <h4 class="p-2 ms-5"><?php echo $date_search; ?></h4>
+                        <ul>
                             <?php
-                                    }
+                                $sql_search_cl = $sql_cl . ",plan pl where pl.pl_userid = '$us_id' and cl.cl_planid = pl.pl_id and DATEDIFF(cl_end,'$date_search') >= 0 and
+                                                                    DATEDIFF('$date_search',cl.cl_start) >= 0";
+                                $result_search_cl = mysqli_query($conn,$sql_search_cl);
+                                if($result_search_cl != "0"){
+                                    while($row_search_cl = mysqli_fetch_assoc($result_search_cl)){
+
+                            ?>
+                            <li>
+                                <h5><?php echo $row_search_cl["cl_name"] ?></h5>
+                                <div class="ms-4">Bắt đầu: <?php echo $row_search_cl["cl_start"] ?></div>
+                                <div class="ms-4">Kết thúc: <?php echo $row_search_cl["cl_end"] ?></div>
+                                <div class="">Nội dung: <?php echo $row_search_cl["cl_contents"] ?></div>
+                            </li>
+                            <?php
+                                    }   
+                                }else{
+                                    echo "<li>Không có thời khóa biểu nào</li>";
                                 }
                             ?>
-                            </tbody>
-                        </table>
-                        
+                        </ul>
                     </div>
                 </div>
             </div>

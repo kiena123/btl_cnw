@@ -12,38 +12,34 @@
 ?>
         <div id="content" class="row">
                 <?php   
-                        $sql_search_pl  = $sql_pl . " where pl_userid = '$us_id'";
-                        $result_search_pl = mysqli_query($conn,$sql_search_pl);
+                        $sql_search_tm  = $sql_tm . " where tm_userid = '$us_id'";
+                        $result_search_tm = mysqli_query($conn,$sql_search_tm);
                 ?>
                 <div id="mid">
                         <div class="contentMain">
                                 <div class="border-bottom boder-3 py-2">
-                                                <h1 class="mx-5 py-2">Các kế hoạch của người dùng</h1>
+                                                <h1 class="mx-5 py-2">Nhóm của người dùng</h1>
                                                 <form action="" method="post" class="ms-5">
-                                                        <input type="text" name="txtSearchPlan">
-                                                        <select name="sltFilter" id="">
-                                                                <option value="0">Tất cả</option>
-                                                                <option value="1">Đang xảy ra</option>
-                                                        </select>
-                                                        <button name="btnSubmit" class="btn btn-outline-primary">OK</button>
+                                                        <input type="text" name="txtSearchGroup">
+                                                        <button name="btnSubmit" class="btn btn-outline-primary">Tìm</button>
                                                 </form>
                                 </div>
                                 <?php
-                                                if(mysqli_num_rows($result_search_pl) > 0){
-                                                while($row_search_pl = mysqli_fetch_assoc($result_search_pl)){
+                                                if($result_search_tm != "0"){
+                                                while($row_search_tm = mysqli_fetch_assoc($result_search_tm)){
                                         ?>
                                 <ul class="">
                                         <li>
-                                                <h4 class="m-3"><?php echo $row_search_pl["pl_name"]; ?></h4>
+                                                <h4 class="m-3"><?php echo $row_search_tm["tm_name"]; ?></h4>
                                                 <div class="ms-5">
-                                                        <div><b>Start: </b><?php echo $row_search_pl['pl_datestart'] ?></div>
-                                                        <div><b>Dateline: </b><?php echo $row_search_pl['pl_deadline'] ?></div>
+                                                        <div><b>Start: </b><?php echo $row_search_tm['tm_datestart'] ?></div>
+                                                        <div><b>Dateline: </b><?php echo $row_search_tm['tm_deadline'] ?></div>
                                                 </div>
                                         <?php
                                         }
                                         }else{
                                                 echo "<div class='m-3'>";
-                                                echo "<h2 class='mt-5 mx-5'>Bạn không có kế hoạch nào</h2>";
+                                                echo "<h2 class='mx-5'>Bạn không có nhóm nào</h2>";
                                                 echo "</div>";
                                         }
                                         ?>
