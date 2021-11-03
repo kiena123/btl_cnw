@@ -1,4 +1,9 @@
 <?php
+    session_start();
+    if(!$_SESSION['id']){
+        header("location: ../../login.php");
+    }
+    $id_us = $_SESSION['id'];
     include("../../config/header.php");
 ?>
 <?php
@@ -14,13 +19,14 @@
                 </div>
                 <div class="contentMain">
                     <h4>Thời khóa biểu trong ngày</h4>
+                    <div><?php
+                        echo $id_us;
+                    ?></div>
                 </div>
             </div>
         </div>
 
-<?php
-    
-?>
+
 <?php
     include("../../config/footer.php");
 ?>
