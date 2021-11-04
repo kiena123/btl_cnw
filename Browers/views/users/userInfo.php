@@ -43,6 +43,14 @@
                                     </div>
                                     <div class="row">
                                         <div class="col-md-6">
+                                            <label>Name</label>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <p><?php echo $row_details_us["us_name"]; ?></p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
                                             <label>Email</label>
                                         </div>
                                         <div class="col-md-6">
@@ -51,7 +59,7 @@
                                     </div>
                                     <div class="row">
                                         <div class="col-md-6 my-2">
-                                            <label>Số điện thoại</label>
+                                            <label>Phone</label>
                                         </div>
                                         <div class="col-md-6">
                                             <p class="my-2"><?php echo $row_details_us["us_phone"]; ?></p>

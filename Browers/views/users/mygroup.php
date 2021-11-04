@@ -16,42 +16,15 @@
                 <?php   
                         $sql_search_mb  = $sql_mb . ",team tm where tm.tm_id = mb.mb_teamid and mb.mb_userid = '$us_id'";
                         $result_search_mb = mysqli_query($conn,$sql_search_mb);
-                        if(isset($_POST['btnTim'])){
-                                $tennv = $_POST['txtHoTen'];
-                                $chucvu = $_POST['txtChucVu'];
-                                $mayban = $_POST['txtMayBan'];
-                                $email = $_POST['txtEmail'];
-                                $sodidong = $_POST['txtDiDong'];
-                                $madv = $_POST['sltMaDV'];
-                        
-                                if($tennv != ""){
-                                    $sql = $sql . " and (nv.tennv like '%$tennv' or nv.tennv like '$tennv%' or nv.tennv like '%$tennv%')";
-                                }
-                                if($chucvu  != ""){
-                                    $sql = $sql . " and (nv.chucvu like '%$chucvu' or nv.chucvu like '$chucvu%' or nv.chucvu like '%$chucvu%')";
-                                }
-                                if($mayban  != ""){
-                                    $sql = $sql . " and (nv.mayban like '%$mayban' or nv.mayban like '$mayban%' or nv.mayban like '%$mayban%')";
-                                }
-                                if($email  != ""){
-                                    $sql = $sql . " and (nv.email like '%$email' or nv.email like '$email%' or nv.email like '%$email%')";
-                                }
-                                if($sodidong  != ""){
-                                    $sql = $sql . " and (nv.sodidong like '%$sodidong' or nv.sodidong like '$sodidong%' or nv.sodidong like '%$sodidong%')";
-                                }
-                                if($madv  != ""){
-                                    $sql = $sql . " and (nv.madv like '%$madv' or nv.madv like '$madv%' or nv.madv like '%$madv%')";
-                                }
-                        }
                 ?>
                 <div id="mid">
                         <div class="contentMain">
                                 <div class="border-bottom boder-3 py-2">
                                                 <h1 class="mx-5 py-2">Nhóm của người dùng</h1>
-                                                <form action="" method="post" class="ms-5">
+                                                <!-- <form action="" method="post" class="ms-5">
                                                         <input type="text" name="txtSearchGroup">
                                                         <button type="submit" name="btnSubmit" class="btn btn-outline-primary">Tìm</button>
-                                                </form>
+                                                </form> -->
                                 </div>
                                 <ul class="">
                                 <?php
@@ -63,12 +36,18 @@
                                                 <div class="ms-5">
                                                         <ul>
                                                                 <?php
-                                                                        $sql_listed_mb_us = $sql_us .",member mb where us_id = mb_userid and mb_teamid =". $row_search_mb["tm_id"];
+                                                                        $sql_listed_mb_us = $sql_us .",member mb,team tm where us_id = mb_userid and tm.tm_id = mb.mb_teamid
+                                                                                                        and mb_teamid =". $row_search_mb["tm_id"];
                                                                         $result_listed_mb_us =  mysqli_query($conn,$sql_listed_mb_us);
                                                                         if($result_listed_mb_us != "0"){
                                                                                 while($row_listed_mb_us = mysqli_fetch_assoc($result_listed_mb_us)){
                                                                 ?>
-                                                                        <li class="text-dark"><a href="./userInfo.php?userid=<?php echo $row_listed_mb_us["us_id"]; ?>"><?php echo $row_listed_mb_us["us_name"]; ?></a></li>
+                                                                        <li class="text-dark"><a href="./userInfo.php?userid=<?php echo $row_listed_mb_us["us_id"]; ?>">
+                                                                        <?php echo $row_listed_mb_us["us_name"]; 
+                                                                                if($row_listed_mb_us["tm_managerid"] == $row_listed_mb_us["mb_userid"]){
+                                                                                        echo " (Trưởng nhóm)";
+                                                                                }
+                                                                        ?></a></li>
                                                                 <?php
                                                                                 }
                                                                         }
