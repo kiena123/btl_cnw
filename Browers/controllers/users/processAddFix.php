@@ -22,11 +22,11 @@
             $sql_add_pl = "INSERT INTO calendar(cl_planid,cl_start,cl_end,cl_name,cl_contents)
                             VALUE ($cl_planid,'$cl_start','$cl_end','$cl_name','$cl_contents')";
             $result_add_pl = mysqli_query($conn,$sql_add_pl);
-            header("location: ../../views/users/detailsPlan.php");
+            header("location: ../../views/users/detailsPlan.php?pl_id=$cl_planid");
         }else{
-            $sql_fix_pl = "UPDATE calendar SET cl_planid = $cl_planid,cl_start = '$cl_start',cl_end = '$cl_end',
-                            cl_name = '$cl_name',cl_contents = '$cl_contents' where cl_id = $cl_id)";
+            $sql_fix_pl = "UPDATE calendar SET cl_planid = $cl_planid, cl_start = '$cl_start',cl_end = '$cl_end',
+                            cl_name = '$cl_name',cl_contents = '$cl_contents' where cl_id = $cl_id";
             $result_fix_pl = mysqli_query($conn,$sql_fix_pl);
-            header("location: ../../views/users/detailsPlan.php");
+            header("location: ../../views/users/detailsPlan.php?pl_id=$cl_planid");
         }
     }

@@ -40,11 +40,13 @@
                                                 while($row_search_pl = mysqli_fetch_assoc($result_search_pl)){
                                         ?>
                                         <li>
-                                                <h4 class="m-3"><a class="text-dark" href="./detailsPlan.php?pl_id=<?php echo $row_search_pl["pl_id"]; ?>"><?php echo $row_search_pl["pl_name"]; ?></a></h4>
-                                                <div class="ms-5">
-                                                        <div><b>Start: </b><?php echo $row_search_pl['pl_datestart'] ?></div>
-                                                        <div><b>Dateline: </b><?php echo $row_search_pl['pl_deadline'] ?></div>
-                                                </div>
+                                                <a class="text-dark" href="./detailsPlan.php?pl_id=<?php echo $row_search_pl["pl_id"]; ?>">
+                                                        <h4 class="m-3"><?php echo $row_search_pl["pl_name"]; ?></h4>
+                                                        <div class="ms-5">
+                                                                <div><b>Start: </b><?php echo $row_search_pl['pl_datestart'] ?></div>
+                                                                <div><b>Dateline: </b><?php echo $row_search_pl['pl_deadline'] ?></div>
+                                                        </div>
+                                                </a>
                                         <?php
                                         }
                                         }else{

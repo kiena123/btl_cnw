@@ -3,9 +3,11 @@
     if(!$_SESSION['id']){
         header("location: ../../login.php");
     }
-    $us_id = $_SESSION["id"];
+    
     if(isset($_GET["userid"])){
-        
+        $us_id = $_GET["userid"];
+    }else{
+        $us_id = $_SESSION["id"];
     }
     include("../../config/header.php");
     include("../../config/category.php");
@@ -25,7 +27,7 @@
                     <div class="row">
                         <div class="col-md-12">
                             <div class="profile-head my-4 ms-5">
-                                <h2>Tên người dùng</h2>
+                                <h2>Chi tiết thông tin người dùng</h2>
                             </div>
                         </div>
                     </div>
@@ -43,14 +45,6 @@
                                     </div>
                                     <div class="row">
                                         <div class="col-md-6">
-                                            <label>Name</label>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <p><?php echo $row_details_us["us_name"]; ?></p>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-md-6">
                                             <label>Email</label>
                                         </div>
                                         <div class="col-md-6">
@@ -59,7 +53,7 @@
                                     </div>
                                     <div class="row">
                                         <div class="col-md-6 my-2">
-                                            <label>Phone</label>
+                                            <label>Số điện thoại</label>
                                         </div>
                                         <div class="col-md-6">
                                             <p class="my-2"><?php echo $row_details_us["us_phone"]; ?></p>

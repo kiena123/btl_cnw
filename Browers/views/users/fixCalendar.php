@@ -43,12 +43,12 @@
                             </select>
                         </div>
                         <div class="mb-3">
-                            <label for="txtNamePlan" class="form-label">Tên kế hoạch</label>
-                            <input type="text" name="txtNamePlan" class="form-control" id="txtNamePlan" value="<?php echo $row_details_cl["cl_name"] ?>">
+                            <label for="txtNameSchedule" class="form-label">Tên kế hoạch</label>
+                            <input type="text" name="txtNameSchedule" class="form-control" id="txtNameSchedule" value="<?php echo $row_details_cl["cl_name"] ?>">
                         </div>
                         <div class="mb-3">
-                            <label for="txtContentPlan" class="form-label">Nội dung kế hoạch</label>
-                            <textarea name="txtContentPlan" id="txtContentPlan" cols="117" rows="4" ><?php echo $row_details_cl["cl_contents"] ?></textarea>
+                            <label for="txtContentSchedule" class="form-label">Nội dung kế hoạch</label>
+                            <textarea name="txtContentSchedule" id="txtContentSchedule" cols="117" rows="4" ><?php echo $row_details_cl["cl_contents"] ?></textarea>
                         </div>
                         <div class="mb-3">
                             <label for="txtTimeStart" class="form-label">Thời gian bắt đầu</label>

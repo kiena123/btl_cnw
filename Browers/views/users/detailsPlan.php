@@ -4,6 +4,7 @@
                 header("location: ../../login.php");
         }
         $us_id = $_SESSION["id"];
+        $pl_id = $_GET["pl_id"];
     include("../../config/header.php");
     include("../../config/db.php");
 ?>
@@ -11,7 +12,7 @@
     include("../../config/category.php");
 ?>
 <?php
-        $sql_details_pl = $sql_pl . " where pl_userid = $us_id";
+        $sql_details_pl = $sql_pl . " where pl_userid = $us_id and pl_id = $pl_id";
         $result_details_pl = mysqli_query($conn,$sql_details_pl);
         if(mysqli_num_rows($result_details_pl) > 0){
                 $row_details_pl = mysqli_fetch_assoc($result_details_pl);

@@ -19,7 +19,7 @@
                     </div>
                     <form id="processCalendar" action="../../controllers/users/processAddFix.php" method="post">
                         <div class="mb-3">
-                            <span>Thuộc công ty</span>
+                            <span>Theo kế hoạch</span>
                             <select class="form-select" name="sltPlan" id="sltPlan">
                                 <?php
                                     $sql_owned_pl = $sql_pl . "where pl_id = $pl_id";
