@@ -25,7 +25,7 @@
                                 <tr>
                                     <th scope="col">STT</th>
                                     <th scope="col">Tên nhóm</th>
-                                    <th scope="col">Trưởng nhóm</th>
+                                    <th scope="col">Mã trưởng nhóm</th>
                                     <th scope="col">Chi tiết nhóm</th>
                                     <th scope="col">Sửa</th>
                                     <th scope="col">Xóa</th>
