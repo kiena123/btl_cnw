@@ -4,6 +4,9 @@
         header("location: ../../login.php");
     }
     $us_id = $_SESSION["id"];
+    if(isset($_GET["userid"])){
+        
+    }
     include("../../config/header.php");
 ?>
 <?php

@@ -51,7 +51,7 @@
 
                             ?>
                             <li>
-                                <h5><?php echo $row_search_cl["cl_name"] ?></h5>
+                                <h5><a href="./detailsCalendar.php?cl_id=<?php echo $row_search_cl["cl_id"] ?>"><?php echo $row_search_cl["cl_name"] ?></a></h5>
                                 <div class="ms-4">Bắt đầu: <?php echo $row_search_cl["cl_start"] ?></div>
                                 <div class="ms-4">Kết thúc: <?php echo $row_search_cl["cl_end"] ?></div>
                                 <div class="">Nội dung: <?php echo $row_search_cl["cl_contents"] ?></div>

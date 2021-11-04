@@ -31,10 +31,6 @@
                                         <h1 class="mx-5 py-2">Các kế hoạch của người dùng</h1>
                                         <form action="" method="post" class="ms-5">
                                                 <input type="text" name="txtSearchPlan">
-                                                <select name="sltFilter" id="">
-                                                        <option value="0">Tất cả</option>
-                                                        <option value="1">Đang xảy ra</option>
-                                                </select>
                                                 <button name="btnSubmit" class="btn btn-outline-primary">OK</button>
                                         </form>
                                 </div> 

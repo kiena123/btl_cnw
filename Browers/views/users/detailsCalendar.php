@@ -19,7 +19,7 @@
                     <div class="py-3 mb-3 border-bottom border-3">
                         <h1 class="ms-3">Sửa kế hoạch</h1>
                     </div>
-                    <form id="processCalendar" action="../../controllers/users/processAddFix.php" method="post">
+                    <div>
                         <?php 
                             $sql_details_cl = $sql_cl . " where cl_id = $cl_id";
                             $result_details_cl = mysqli_query($conn,$sql_details_cl);
@@ -30,51 +30,44 @@
                                 $pl_id = $row_details_cl['cl_planid'];
                         ?>
                         <div class="mb-3">
-                            <span>Thuộc công ty</span>
-                            <select class="form-select" name="sltPlan" id="sltPlan">
+                            <div>
+                                Thuộc công ty: 
                                 <?php
-                                    $sql_owned_pl = $sql_pl . "where pl_id = $pl_id";
+                                    $sql_owned_pl = $sql_pl . "where pl_id = ".$row_details_cl['cl_planid'];
                                     $result_owned_pl = mysqli_query($conn,$sql_owned_pl);
                                     if(mysqli_num_rows($result_owned_pl) > 0){
                                         $row_owned_pl = mysqli_fetch_assoc($result_owned_pl);
-                                        echo "<option selected value =".$row_owned_pl["pl_id"].">".$row_owned_pl['pl_name']."</option>";
+                                        echo $row_owned_pl['pl_name'];
                                     }
                                 ?>
-                            </select>
+                            </div>
                         </div>
                         <div class="mb-3">
-                            <label for="txtNamePlan" class="form-label">Tên kế hoạch</label>
-                            <input type="text" name="txtNamePlan" class="form-control" id="txtNamePlan" value="<?php echo $row_details_cl["cl_name"] ?>">
+                            <div class="">Tên kế hoạch: <?php echo $row_details_cl["cl_name"] ?></div>
                         </div>
                         <div class="mb-3">
-                            <label for="txtContentPlan" class="form-label">Nội dung kế hoạch</label>
-                            <textarea name="txtContentPlan" id="txtContentPlan" cols="117" rows="4" ><?php echo $row_details_cl["cl_contents"] ?></textarea>
+                            <div class="">Nội dung kế hoạch: <?php echo $row_details_cl["cl_contents"] ?></div>
                         </div>
                         <div class="mb-3">
-                            <label for="txtTimeStart" class="form-label">Thời gian bắt đầu</label>
-                            <input type="time" name="txtTimeStart" class="form-control" id="txtTimeStart" value="<?php echo $date_start[1] ?>">
+                            <div class="">Thời gian bắt đầu: <?php echo $date_start[1] ?></div>
                         </div>
                         <div class="mb-3">
-                            <label for="txtDateStart" class="form-label">Ngày bắt đầu</label>
-                            <input type="date" name="txtDateStart" class="form-control" id="txtDateStart" value="<?php echo $date_start[0] ?>">
+                            <div class="">Ngày bắt đầu: <?php echo $date_start[0] ?></div>
                         </div>
                         <div class="mb-3">
-                            <label for="txtTimeEnd" class="form-label">Thời gian kết thúc</label>
-                            <input type="time" name="txtTimeEnd" class="form-control" id="txtTimeEnd" value="<?php echo $date_end[1] ?>">
+                            <div class="">Thời gian kết thúc: <?php echo $date_end[1] ?></div>
                         </div>
                         <div class="mb-3">
-                            <label for="txtDateEnd" class="form-label">Ngày kết thúc</label>
-                            <input type="date" name="txtDateEnd" class="form-control" id="txtDateEnd" value="<?php echo $date_end[0] ?>">
+                            <div class="">Ngày kết thúc: <?php echo $date_end[0] ?></div>
                         </div>
                         <div id="warned" class="mb-3">
                             
                         </div>
-                        <input type="hidden" name="cl_id" class="form-control" id="type" value="<?php echo $row_details_cl["cl_id"] ?>">
-                        <button type="submit" class="btn btn-primary mt-3 mb-4" name="submit">Lưu</button>
+                        <button class="btn btn-primary"><a href="./fixCalendar.php?cl_id=<?php echo $cl_id?>">Sửa</a></button>
                         <?php
                     }
                         ?>
-                    </form>
+                    </div>
                 </div>
             </div>
             <div class="right">

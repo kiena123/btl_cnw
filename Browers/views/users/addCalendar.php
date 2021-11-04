@@ -28,7 +28,6 @@
                                         $row_owned_pl = mysqli_fetch_assoc($result_owned_pl);
                                         echo "<option selected value =".$row_owned_pl["pl_id"].">".$row_owned_pl['pl_name']."</option>";
                                     }
-                                        
                                 ?>
                             </select>
                         </div>
@@ -59,7 +58,6 @@
                         <div id="warned" class="mb-3">
                             
                         </div>
-                        <input type="hidden" name="type" class="form-control" id="type" value="add">
                         <button type="submit" class="btn btn-primary mt-3 mb-4" name="submit">Lưu</button>
                     </form>
                 </div>
