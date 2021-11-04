@@ -49,17 +49,17 @@
                                 if($result_search_cl != "0"){
                                     while($row_search_cl = mysqli_fetch_assoc($result_search_cl)){
 
-                            ?>
-                            <li>
-                                <h5><a href="./detailsCalendar.php?cl_id=<?php echo $row_search_cl["cl_id"] ?>"><?php echo $row_search_cl["cl_name"] ?></a></h5>
-                                <div class="ms-4">Bắt đầu: <?php echo $row_search_cl["cl_start"] ?></div>
-                                <div class="ms-4">Kết thúc: <?php echo $row_search_cl["cl_end"] ?></div>
-                                <div class="">Nội dung: <?php echo $row_search_cl["cl_contents"] ?></div>
-                            </li>
-                            <?php
+                                ?>
+                                <li>
+                                    <h5><a href="./detailsCalendar.php?cl_id=<?php echo $row_search_cl["cl_id"] ?>"><?php echo $row_search_cl["cl_name"] ?></a></h5>
+                                    <div class="ms-4">Bắt đầu: <?php echo $row_search_cl["cl_start"] ?></div>
+                                    <div class="ms-4">Kết thúc: <?php echo $row_search_cl["cl_end"] ?></div>
+                                    <div class="">Nội dung: <?php echo $row_search_cl["cl_contents"] ?></div>
+                                </li>
+                                <?php
                                     }   
                                 }else{
-                                    echo "<li>Không có thời khóa biểu nào</li>";
+                                    echo "<li>Không có kế hoạch</li>";
                                 }
                             ?>
                         </ul>
@@ -79,7 +79,7 @@
                                     echo "<li><a class='text-danger' href='./detailsPlan.php?pl_id=".$row_pl['pl_id']."'>".$row_pl['pl_contents']."</a></li>";
                                 }
                             }else{
-                                
+                                echo "<li>Không có kế hoạch</li>";
                             }
                         ?>
                     </ul>
