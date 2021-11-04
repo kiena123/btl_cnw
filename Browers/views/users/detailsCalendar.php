@@ -17,7 +17,7 @@
             <div id="mid" class="left">
                 <div class="contentMain">
                     <div class="py-3 mb-3 border-bottom border-3">
-                        <h1 class="ms-3">Sửa kế hoạch</h1>
+                        <h1 class="ms-3">Chi tiết kế hoạch</h1>
                     </div>
                     <div>
                         <?php 
@@ -64,6 +64,7 @@
                             
                         </div>
                         <button class="btn btn-primary"><a href="./fixCalendar.php?cl_id=<?php echo $cl_id?>">Sửa</a></button>
+                        <button class="btn btn-primary"><a href="../../controllers/users/processDeleteCalendar.php?cl_id=<?php echo $cl_id?>">Xóa</a></button>
                         <?php
                     }
                         ?>
