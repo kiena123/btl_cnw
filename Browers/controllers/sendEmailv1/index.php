@@ -44,7 +44,7 @@ try {
     $mail->Subject = $tieude;
     
     // Mail body content
-    $bodyContent = "<p>Hãy nháy chuột vào <a href='http://localhost/B%c3%a0i%20t%e1%ba%adp/btl/Browers/controllers/accuracy.php?confirmed=$confirmed&email=$email'>Bấm vào link để xác nhận</a>";
+    $bodyContent = "<p>Hãy nháy chuột vào <a href='http://localhost/btl_cnw/Browers/controllers/accuracy.php?confirmed=$confirmed&email=$email'>Bấm vào link để xác nhận</a>";
     
     $mail->Body = $bodyContent;
     // $mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
