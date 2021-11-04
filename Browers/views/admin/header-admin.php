@@ -24,7 +24,7 @@
                     <img src="../../assets/images/logoDHTL.jfif" class="ms-3" width="50" alt="logo">
                     <li><a href="index.php" class="nav-link px-2 text-black">Quản lý người dùng</a></li>
                     <li><a href="group.php" class="nav-link px-2 text-black">Quản lý nhóm</a></li>
-                    <li><a href="plan.php" class="nav-link px-2 text-black">Lịch làm việc</a></li>
+                    <li><a href="plan.php" class="nav-link px-2 text-black">Kế hoạch</a></li>
                 </ul>
                 </div>
                 <div class="me-2">

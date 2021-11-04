@@ -68,7 +68,7 @@
             </div>
             <div class="right">
                 <div class="contentMain">
-                    <h4>Kế hoạch còn hạn khi ngày</h4>
+                    <h4>Kế hoạch còn hạn</h4>
                     <ul class="ms-3">
                         <?php
                             $sql_query_pl = $sql_pl . " where pl_userid = '$us_id' and  
