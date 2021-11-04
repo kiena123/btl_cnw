@@ -22,7 +22,7 @@
                 <div class="ms-2">
                 <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
                     <img src="../../assets/images/logoDHTL.jfif" class="ms-3" width="50" alt="logo">
-                    <li><a href="user.php" class="nav-link px-2 text-black">Quản lý người dùng</a></li>
+                    <li><a href="index.php" class="nav-link px-2 text-black">Quản lý người dùng</a></li>
                     <li><a href="group.php" class="nav-link px-2 text-black">Quản lý nhóm</a></li>
                     <li><a href="plan.php" class="nav-link px-2 text-black">Lịch làm việc</a></li>
                 </ul>
