@@ -28,6 +28,7 @@
                 </ul>
                 </div>
                 <div class="me-2">
+                    <button class="btn btn-warning"><a href="./userinfo.php?us_id=<?php echo $_SESSION["id"] ?>">Thông tin người dùng</a></button>
                     <button class="btn btn-warning"><a href="../../controllers/processLogout.php?repnse=ok">Đăng xuất</a></button>
                     
                 </div>
