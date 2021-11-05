@@ -1,5 +1,1 @@
-aaaa  https://github.com/kiena123/btl_cnw.git
-/blob/master/  :file
-	VD: https://github.com/kiena123/btl_cnw/blob/master/text.txt
-/tree/master/  : thư mục
-vd: https://github.com/kiena123/btl_cnw/tree/master/Thi%E1%BA%BFt%20k%E1%BA%BF%20trang%20web
+http://cnw2061httlu.unaux.com/Browers/

@@ -100,8 +100,8 @@ INSERT INTO `member` (`mb_teamid`, `mb_userid`, `mb_status`) VALUES
 CREATE TABLE `plan` (
   `pl_id` int(10) NOT NULL,
   `pl_userid` int(10) NOT NULL,
-  `pl_datestart` date NOT NULL DEFAULT current_timestamp(),
-  `pl_deadline` date NOT NULL,
+  `pl_datestart` datetime NOT NULL DEFAULT current_timestamp(),
+  `pl_deadline` datetime NOT NULL,
   `pl_name` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
   `pl_contents` varchar(200) COLLATE utf8mb4_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -148,7 +148,7 @@ CREATE TABLE `user` (
   `us_name` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
   `us_email` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
   `us_phone` varchar(20) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `us_regdate` date NOT NULL DEFAULT current_timestamp()
+  `us_regdate` datetime NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
