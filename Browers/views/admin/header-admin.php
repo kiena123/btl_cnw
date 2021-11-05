@@ -24,11 +24,10 @@
                     <img src="../../assets/images/logoDHTL.jfif" class="ms-3" width="50" alt="logo">
                     <li><a href="index.php" class="nav-link px-2 text-black">Quản lý người dùng</a></li>
                     <li><a href="group.php" class="nav-link px-2 text-black">Quản lý nhóm</a></li>
-                    <li><a href="plan.php" class="nav-link px-2 text-black">Kế hoạch</a></li>
+                    <li><a href="plan.php" class="nav-link px-2 text-black">Lịch làm việc</a></li>
                 </ul>
                 </div>
                 <div class="me-2">
-                    <button class="btn btn-warning"><a href="./userinfo.php?us_id=<?php echo $_SESSION["id"] ?>">Thông tin người dùng</a></button>
                     <button class="btn btn-warning"><a href="../../controllers/processLogout.php?repnse=ok">Đăng xuất</a></button>
                     
                 </div>

@@ -13,7 +13,7 @@ if (!$conn) {
             values ('$tennd','$email','$phone')";
             
         mysqli_query($conn,$sql_insert);
-        header('location: index.php');
+        header('location: user.php');
 
     }
 ?>

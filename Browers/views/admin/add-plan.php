@@ -9,10 +9,10 @@ if (!$conn) {
         $pl_userid = $_POST['userid'];
         $pl_datestart = $_POST['datestart'];
         $pl_deadline = $_POST['deadline'];
-        $pl_name = $_POST['plname'];
+        $pl_name = $_POST['name'];
         $pl_content = $_POST['content']; 
                 
-        $sql_insert = "INSERT into thicuoiki(id,userid,datestart,deadline,plname,content)
+        $sql_insert = "INSERT into plan(id,userid,datestart,deadline,name,content)
             values ('$pl_id','$pl_userid','$pl_datestart','$pl_deadline','$pl_name','$pl_content')";
             
         $result = mysqli_query($conn,$sql_insert);
@@ -44,8 +44,8 @@ if (!$conn) {
                 <input type="text" name="deadline" class="form-control" id="deadline" >
             </div>
             <div class="mb-3">
-                <label for="plname" class="form-label">Tên</label>
-                <input type="text" name="plname" class="form-control" id="plname" >
+                <label for="name" class="form-label">Tên</label>
+                <input type="text" name="name" class="form-control" id="name" >
             </div>
             <div class="mb-3">
                 <label for="content" class="form-label">Nội dung</label>
