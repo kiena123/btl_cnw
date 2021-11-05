@@ -32,7 +32,9 @@
                                                 while($row_search_mb = mysqli_fetch_assoc($result_search_mb)){
                                         ?>
                                         <li>
+                                                <a href="./detailsGroup.php?tm_id=<?php echo $row_search_mb["tm_id"]; ?>">
                                                 <h4 class="m-3"><?php echo $row_search_mb["tm_name"]; ?></h4>
+                                                </a>
                                                 <div class="ms-5">
                                                         <ul>
                                                                 <?php
