@@ -4,7 +4,7 @@ if (!$conn) {
     die("Kết nối thất bại  .Kiểm tra lại các tham số    khai báo kết nối");
 }
 
-    if(isset($_POST['Addpl'])) {
+    if(isset($_POST['them'])) {
         $pl_id = $_POST['id'];
         $pl_userid = $_POST['userid'];
         $pl_datestart = $_POST['datestart'];
@@ -12,8 +12,8 @@ if (!$conn) {
         $pl_name = $_POST['plname'];
         $pl_content = $_POST['content']; 
                 
-        $sql_insert = "INSERT into thicuoiki(id,userid,datestart,deadline,plname,content)
-            values ('$pl_id','$pl_userid','$pl_datestart','$pl_deadline','$pl_name','$pl_content')";
+        $sql_insert = "INSERT into plan(pl_userid,pl_datestart,pl_deadline,pl_name,pl_contents)
+            values ('$pl_userid','$pl_datestart','$pl_deadline','$pl_name','$pl_content')";
             
         $result = mysqli_query($conn,$sql_insert);
         header('location: index.php');
@@ -27,10 +27,6 @@ if (!$conn) {
     <div id="content">
     <div class="container">
         <form class="mt-4" method="POST" action="">
-        <div class="mb-3">
-                <label for="id" class="form-label">Mã</label>
-                <input type="text" name="id" class="form-control" id="id" >
-            </div>
             <div class="mb-3">
                 <label for="userid" class="form-label">Mã người dùng</label>
                 <input type="text" name="userid" class="form-control" id="userid" >
@@ -56,6 +52,6 @@ if (!$conn) {
         </form>
     </div>
 </div>
-<?php 
-include('./footer.php');
+<?php
+    include("../../config/footer.php");
 ?>
