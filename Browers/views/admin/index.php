@@ -26,7 +26,6 @@
                                     <th scope="col">Họ và Tên</th>
                                     <th scope="col">Email</th>
                                     <th scope="col">Số điện thoại</th>
-                                    <th scope="col">chi tiết</th>
                                     <th scope="col">Sửa</th>
                                     <th scope="col">Xóa</th>
                                 </tr>
@@ -44,7 +43,6 @@
                                             <td><?php echo $row['us_name']; ?></td>
                                             <td><?php echo $row['us_email']; ?></td>
                                             <td><?php echo $row['us_phone']; ?></td>
-                                            <td><a href="detail-user.php?userid=<?php echo $row['us_id']; ?>"><i class="fas fa-info-circle"></i></a></td>
                                             <td><a href="fix-user.php?userid=<?php echo $row['us_id']; ?>"><i class="text-dark fas fa-edit"></i></a></td>
                                             <td><a href="delete-user.php?userid=<?php echo $row['us_id']; ?>"><i class="text-dark fas fa-trash-alt"></i></a></td>
                                         </tr>

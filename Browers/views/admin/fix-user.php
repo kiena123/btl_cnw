@@ -10,7 +10,7 @@
         $sql_update = "UPDATE user set us_name = '$name',us_email = '$email',us_phone = '$phone' where us_id = $id";
         $result_update = mysqli_query($conn,$sql_update);
         echo $result_update;
-        header('location: user.php');
+        header('location: index.php');
     }
 ?>
 

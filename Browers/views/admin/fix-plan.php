@@ -21,7 +21,7 @@ if (!$conn) {
 
 
     <?php
-        include('header-admin.php');
+        include('header.php');
     ?>
     <?php $conn = mysqli_connect('localhost', 'root', '', 'db_manage_website');
         $sql_pl = "select * from plan";

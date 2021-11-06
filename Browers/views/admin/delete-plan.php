@@ -8,7 +8,7 @@ $conn = mysqli_connect('localhost', 'root', '', 'db_manage_website');
 
 if(isset($_GET['pl_id'])) {
     $id = $_GET['pl_id'];
-    $sql = "delete from plan where id = '$pl_id'";
+    $sql = "delete from deletepl where id = '$pl_id'";
     $result = mysqli_query($conn, $sql);
     header('location: index.php');
 }

@@ -6,9 +6,9 @@ $conn = mysqli_connect('localhost', 'root', '', 'db_manage_website');
         die("Kết nối thất bại  .Kiểm tra lại các tham số    khai báo kết nối");
     }
 
-if(isset($_GET['tm_id'])) {
-    $id = $_GET['tm_id'];
-    $sql = "delete from team where id = '$tm_id'";
+if(isset($_GET['userid'])) {
+    $id = $_GET['userid'];
+    $sql = "delete from team where tm_id = $id";
     $result = mysqli_query($conn, $sql);
     header('location: index.php');
 }
