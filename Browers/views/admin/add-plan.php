@@ -22,7 +22,7 @@ if (!$conn) {
 ?>
 
     <?php
-        include('./header.php');
+        include("header-admin.php");
     ?>
     <div id="content">
     <div class="container">

@@ -5,7 +5,7 @@
         }
         $us_id = $_SESSION["id"];
         $tm_id = $_GET["userid"];
-        include("../../config/header.php");
+        include("header-admin.php");
         include("../../config/db.php");
 ?>
 <?php
